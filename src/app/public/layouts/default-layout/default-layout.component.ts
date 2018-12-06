@@ -9,7 +9,6 @@ export class DefaultLayoutComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('ran default');
   }
 
 }

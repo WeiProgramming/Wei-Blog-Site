@@ -8,7 +8,7 @@ export const ROUTES: Routes = [
     component: DefaultLayoutComponent,
     children: [
       {
-        path: 'index',
+        path: '',
         component: IndexComponent
       }
     ]
