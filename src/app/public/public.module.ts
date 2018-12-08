@@ -4,6 +4,9 @@ import { IndexComponent } from './pages/index/index.component';
 import {DefaultLayoutComponent} from './layouts/default-layout/default-layout.component';
 import {RouterModule} from '@angular/router';
 import {ROUTES} from './public-routing';
+import { PersonalComponent } from './pages/personal/personal.component';
+import { BusinessComponent } from './pages/business/business.component';
+import { RandomComponent } from './pages/random/random.component';
 
 @NgModule({
   imports: [
@@ -13,6 +16,6 @@ import {ROUTES} from './public-routing';
   exports: [
     RouterModule
   ],
-  declarations: [IndexComponent, DefaultLayoutComponent]
+  declarations: [IndexComponent, DefaultLayoutComponent, PersonalComponent, BusinessComponent, RandomComponent]
 })
 export class PublicModule { }

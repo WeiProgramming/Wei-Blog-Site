@@ -1,0 +1,12 @@
+header {
+  margin-top: 5%;
+}
+
+article {
+  margin: 10% 0;
+  .article-summary-container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
