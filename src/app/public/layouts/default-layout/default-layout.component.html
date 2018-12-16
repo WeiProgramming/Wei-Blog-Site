@@ -25,16 +25,16 @@
 </header>
 <main>
   <section class = "category-group">
-    <article class = "category-item home">
+    <article class = "category-item home" (click)="expand($event)">
       <h1>Home</h1>
     </article>
-    <article class = "category-item personal">
+    <article class = "category-item personal" (click)="expand($event)">
       <h1>Personal</h1>
     </article>
-    <article class = "category-item business">
+    <article class = "category-item business" (click)="expand($event)">
       <h1>Business</h1>
     </article>
-    <article class = "category-item random">
+    <article class = "category-item random" (click)="expand($event)">
       <h1>Random</h1>
     </article>
   </section>
