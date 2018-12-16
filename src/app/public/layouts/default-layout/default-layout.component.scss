@@ -1,0 +1,34 @@
+.category-group {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+
+  .category-item {
+    flex: 1;
+    height: 100%;
+    text-align: center;
+    align-content: center;
+    -webkit-transition: 1s ease-in;
+    -moz-transition: 1s ease-in;
+    -ms-transition: 1s ease-in;
+    -o-transition: 1s ease-in;
+    transition: 1s ease-in;
+  }
+
+  .home {
+    background-color: aqua;
+    flex: 4;
+  }
+
+  .personal {
+    background-color: brown;
+  }
+
+  .business {
+    background-color: magenta;
+  }
+
+  .random {
+    background-color: mediumpurple;
+  }
+}
