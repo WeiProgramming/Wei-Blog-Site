@@ -1,8 +1,9 @@
 <section class = "category-group">
+  <!-- Home flex box -->
   <article  class = "category-item home" (click)="expand($event)" data-name = "home">
     <h1>Home</h1>
     <i class="fas fa-chevron-down"></i>
-    <div class = "container hidden" >
+    <div class = "container hidden open-items" >
       <div class = 'card'>
         <div class = 'card-body'>
           <h5 class="card-title">Card title</h5>
@@ -12,12 +13,14 @@
           <a href="#" class="card-link">Another link</a>
         </div>
       </div>
+      <a routerLink="/home" class = "btn btn-outline-primary">Go to Home</a>
     </div>
   </article>
+  <!-- Personal flex box -->
   <article class = "category-item personal" (click)="expand($event)" data-name = "personal">
     <h1>Personal</h1>
     <i class="fas fa-chevron-down"></i>
-    <div class = "container hidden" >
+    <div class = "container hidden open-items" >
       <div class = 'card'>
         <div class = 'card-body'>
           <h5 class="card-title">Card title</h5>
@@ -27,12 +30,14 @@
           <a href="#" class="card-link">Another link</a>
         </div>
       </div>
+      <a routerLink="/personal" class = "btn btn-outline-primary">Go to Personal</a>
     </div>
   </article>
+  <!-- Business flex box -->
   <article  class = "category-item business" (click)="expand($event)" data-name = "business">
     <h1>Business</h1>
     <i class="fas fa-chevron-down"></i>
-    <div class = "container hidden">
+    <div class = "container hidden open-items">
       <div class = 'card'>
         <div class = 'card-body'>
           <h5 class="card-title">Card title</h5>
@@ -42,12 +47,14 @@
           <a href="#" class="card-link">Another link</a>
         </div>
       </div>
+      <a routerLink="/business" class = "btn btn-outline-primary">Go to Business</a>
     </div>
   </article>
+  <!-- Random flex box -->
   <article  class = "category-item random" (click)="expand($event)" data-name = "random">
     <h1>Random</h1>
     <i class="fas fa-chevron-down"></i>
-    <div class = "container hidden">
+    <div class = "container hidden open-items">
       <div class = 'card'>
         <div class = 'card-body'>
           <h5 class="card-title">Card title</h5>
@@ -57,6 +64,7 @@
           <a href="#" class="card-link">Another link</a>
         </div>
       </div>
+      <a routerLink="/random" class = "btn btn-outline-primary">Go to Random</a>
     </div>
   </article>
 </section>

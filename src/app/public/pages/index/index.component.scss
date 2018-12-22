@@ -58,6 +58,10 @@
       transition: .5s ease-in-out;
     }
 
+    .open-items {
+      z-index: 1000;
+    }
+
     .card-container {
       width: 50%;
       animation-name: card-drop;
