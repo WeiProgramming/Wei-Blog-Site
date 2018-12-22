@@ -24,20 +24,13 @@
   </nav>
 </header>
 <main>
-  <section class = "category-group">
-    <article class = "category-item home" (click)="expand($event)">
-      <h1>Home</h1>
-    </article>
-    <article class = "category-item personal" (click)="expand($event)">
-      <h1>Personal</h1>
-    </article>
-    <article class = "category-item business" (click)="expand($event)">
-      <h1>Business</h1>
-    </article>
-    <article class = "category-item random" (click)="expand($event)">
-      <h1>Random</h1>
-    </article>
-  </section>
+
   <router-outlet></router-outlet>
 </main>
-<footer>Copyright 2018 Wei Industries</footer>
+<footer class = "container">
+  <div class = "row">
+    <div class = "col-md-12">
+      Copyright 2018 Wei Industries
+    </div>
+  </div>
+</footer>

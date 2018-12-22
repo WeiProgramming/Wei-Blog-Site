@@ -1,27 +1,62 @@
-<section>
-  <div class = "overlay">
-    <div class = "container">
-      <div class = "splash-heading">
-        <h1>My Thoughts, Your Pleasure</h1>
-      </div>
-
-      <div class = "row">
-        <article class = "col-md-6">
-          <div class = "main-card">
-            <h3>Why I Like Pie</h3>
-            <p>Very delicious</p>
-          </div>
-        </article>
-        <aside class = "col-md-6">
-          <ul class="list-group">
-            <li class="list-group-item">{{'Why School Is a waste of Time' | uppercase}}</li>
-            <li class="list-group-item">{{'Why School Is a waste of Time' | uppercase}}</li>
-            <li class="list-group-item">{{'Why School Is a waste of Time' | uppercase}}</li>
-            <li class="list-group-item">{{'Why School Is a waste of Time' | uppercase}}</li>
-            <li class="list-group-item">{{'Why School Is a waste of Time' | uppercase}}</li>
-          </ul>
-        </aside>
+<section class = "category-group">
+  <article  class = "category-item home" (click)="expand($event)" data-name = "home">
+    <h1>Home</h1>
+    <i class="fas fa-chevron-down"></i>
+    <div class = "container hidden" >
+      <div class = 'card'>
+        <div class = 'card-body'>
+          <h5 class="card-title">Card title</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
       </div>
     </div>
-  </div>
+  </article>
+  <article class = "category-item personal" (click)="expand($event)" data-name = "personal">
+    <h1>Personal</h1>
+    <i class="fas fa-chevron-down"></i>
+    <div class = "container hidden" >
+      <div class = 'card'>
+        <div class = 'card-body'>
+          <h5 class="card-title">Card title</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article  class = "category-item business" (click)="expand($event)" data-name = "business">
+    <h1>Business</h1>
+    <i class="fas fa-chevron-down"></i>
+    <div class = "container hidden">
+      <div class = 'card'>
+        <div class = 'card-body'>
+          <h5 class="card-title">Card title</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article  class = "category-item random" (click)="expand($event)" data-name = "random">
+    <h1>Random</h1>
+    <i class="fas fa-chevron-down"></i>
+    <div class = "container hidden">
+      <div class = 'card'>
+        <div class = 'card-body'>
+          <h5 class="card-title">Card title</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+    </div>
+  </article>
 </section>
