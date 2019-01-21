@@ -2,40 +2,16 @@
   <header>
     <h1>Personal Articles, Okarinasai</h1>
   </header>
-  <article class = "row">
+  <article class = "row" *ngFor="let article of articles">
     <div class = "col-md-3">
       <div claas = "img-container">
-        <img src = "https://images.unsplash.com/photo-1524088484081-4ca7e08e3e19?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=724&q=80" class = "img-fluid"/>
+        <img src = {{article.value.pictureUrl}} class = "img-fluid"/>
       </div>
     </div>
     <div class = "col-md-9">
       <div class = "article-summary-container">
-        <h3>My Childhood</h3>
-        <p>It all started when I was born, I stumbled and found a dark tunnel and ev...</p>
-      </div></div>
-  </article>
-  <article class = "row">
-    <div class = "col-md-3">
-      <div claas = "img-container">
-        <img src = "https://images.unsplash.com/photo-1524088484081-4ca7e08e3e19?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=724&q=80" class = "img-fluid"/>
-      </div>
-    </div>
-    <div class = "col-md-9">
-      <div class = "article-summary-container">
-        <h3>My Childhood</h3>
-        <p>It all started when I was born, I stumbled and found a dark tunnel and ev...</p>
-      </div></div>
-  </article>
-  <article class = "row">
-    <div class = "col-md-3">
-      <div claas = "img-container">
-        <img src = "https://images.unsplash.com/photo-1524088484081-4ca7e08e3e19?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=724&q=80" class = "img-fluid"/>
-      </div>
-    </div>
-    <div class = "col-md-9">
-      <div class = "article-summary-container">
-        <h3>My Childhood</h3>
-        <p>It all started when I was born, I stumbled and found a dark tunnel and ev...</p>
+        <h3>{{article.value.title}}</h3>
+        <p>{{article.value.description}}</p>
       </div></div>
   </article>
 </section>
