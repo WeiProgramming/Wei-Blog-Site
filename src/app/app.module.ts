@@ -7,7 +7,8 @@ import {ROUTES} from './app-routing.component';
 import {PublicModule} from './public/public.module';
 
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabaseModule } from "angularfire2/database";
+
 import {environment} from '../environments/environment';
 import {InternalModule} from './internal/internal.module';
 
@@ -18,11 +19,12 @@ import {InternalModule} from './internal/internal.module';
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase, 'blog-20dcd'),
+    AngularFireDatabaseModule,
     PublicModule,
     InternalModule,
-    RouterModule.forRoot([])
+    RouterModule.forRoot([]),
   ],
-  providers: [AngularFireDatabase],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -11,7 +11,8 @@ import { RandomComponent } from './pages/random/random.component';
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(ROUTES)
+    RouterModule.forChild(ROUTES),
+
   ],
   exports: [
     RouterModule

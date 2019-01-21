@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-index',
@@ -15,7 +16,7 @@ export class IndexComponent implements OnInit {
   // personalOpen = this.personalSubject.asObservable();
   // businessOpen = this.businessSubject.asObservable();
   // randomOpen = this.randomSubject.asObservable();
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     const items = document.querySelector('.category-group');
@@ -50,19 +51,13 @@ export class IndexComponent implements OnInit {
   // }
   expand(event) {
     const target = event.target || event.srcElement || event.currentTarget;
-    const items = document.querySelectorAll('.category-item');
-    // @ts-ignore
-    items.forEach( item => {
-      console.log(item.childNodes[0]);
-      item.style.flex = 1;
-      item.classList.remove('active');
-      item.childNodes[2].classList.add('hidden');
-      target.childNodes[2].classList.remove('card-container');
-    });
-    target.style.flex = 8;
-    target.classList.add('active');
-    target.childNodes[2].classList.remove('hidden');
-    target.childNodes[2].classList.add('card-container');
+
+    if(target.querySelector('h1').textContent.toLowerCase() !== 'home'){
+      this.router.navigate([`/${target.querySelector('h1').textContent.toLowerCase()}`]);
+    }
+    else {
+      this.router.navigate([`/`]);
+    }
   }
 
 }

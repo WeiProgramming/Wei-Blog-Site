@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {ROUTE} from './internal-routing';
 import {DashboardComponent} from './pages/dashboard/dashboard.component';
+import {DefaultLayoutComponent} from "./layouts/default-layout/default-layout.component";
 
 @NgModule({
   imports: [
@@ -12,6 +13,6 @@ import {DashboardComponent} from './pages/dashboard/dashboard.component';
   exports: [
     RouterModule
   ],
-  declarations: [DashboardComponent]
+  declarations: [DashboardComponent, DefaultLayoutComponent]
 })
 export class InternalModule { }
