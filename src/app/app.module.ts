@@ -8,6 +8,8 @@ import {PublicModule} from './public/public.module';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from "angularfire2/database";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+
 
 import {environment} from '../environments/environment';
 import {InternalModule} from './internal/internal.module';
@@ -19,6 +21,7 @@ import {InternalModule} from './internal/internal.module';
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase, 'blog-20dcd'),
+    AngularFireAuthModule,
     AngularFireDatabaseModule,
     PublicModule,
     InternalModule,

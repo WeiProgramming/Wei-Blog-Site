@@ -4,11 +4,13 @@ import {RouterModule} from '@angular/router';
 import {ROUTE} from './internal-routing';
 import {DashboardComponent} from './pages/dashboard/dashboard.component';
 import {DefaultLayoutComponent} from "./layouts/default-layout/default-layout.component";
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(ROUTE)
+    RouterModule.forChild(ROUTE),
+    SharedModule
   ],
   exports: [
     RouterModule
