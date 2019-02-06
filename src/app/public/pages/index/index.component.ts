@@ -10,8 +10,7 @@ import {Router} from '@angular/router';
 export class IndexComponent implements OnInit {
   // homeSubject = new BehaviorSubject<boolean>(false);
   // homeOpen = this.homeSubject.asObservable();
-  constructor(private router: Router) {
-  }
+  constructor(private router: Router) { }
   ngOnInit() {
     const items = document.querySelector('.category-group');
   }

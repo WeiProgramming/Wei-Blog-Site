@@ -4,6 +4,8 @@ import {IndexComponent} from './pages/index/index.component';
 import {PersonalComponent} from './pages/personal/personal.component';
 import {BusinessComponent} from './pages/business/business.component';
 import {RandomComponent} from './pages/random/random.component';
+import {LoginComponent} from "./pages/login/login.component";
+import {SignupComponent} from "./pages/signup/signup.component";
 
 export const ROUTES: Routes = [
   {
@@ -25,6 +27,14 @@ export const ROUTES: Routes = [
       {
         path: 'random',
         component: RandomComponent
+      },
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: 'register',
+        component: SignupComponent
       }
     ]
   }

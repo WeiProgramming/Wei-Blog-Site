@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DatabaseService} from "../../../shared/database/database.service";
 
 @Component({
   selector: 'app-business',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./business.component.scss']
 })
 export class BusinessComponent implements OnInit {
+  articles: any[];
 
-  constructor() { }
+  constructor(private dbService: DatabaseService) { }
 
   ngOnInit() {
+    this.articles = this.dbService.getArticles('/articles');
   }
 
 }

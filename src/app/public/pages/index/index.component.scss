@@ -58,7 +58,6 @@
       transition: .5s ease-in-out;
     }
 
-
     &:before {
       content: '';
       width: 100%;
@@ -95,7 +94,7 @@
   }
 
   .home {
-    background-image: url('src/assets/images/home-bg.jpg');
+    background-image: url('./src/assets/images/home-bg.jpg');
     @extend .flex_items_centered;
   }
 
