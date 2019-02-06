@@ -58,19 +58,6 @@
       transition: .5s ease-in-out;
     }
 
-    .card-container {
-      width: 50%;
-      animation-name: card-drop;
-      animation-duration: .6s;
-      animation-direction: alternate;
-      animation-iteration-count: 1;
-      animation-timing-function: ease-in-out;
-      animation-delay: .2s;
-    }
-
-    .hidden {
-      display: none;
-    }
 
     &:before {
       content: '';
