@@ -17,7 +17,6 @@ export class PersonalComponent implements OnInit {
       if(user) {
         console.log(user);
         this.userId = user.uid;
-        this.createItem();
         this.articles = this.dbService.getArticles(`personal/${this.userId}`);
         console.log(this.articles);
       }
@@ -25,8 +24,4 @@ export class PersonalComponent implements OnInit {
   }
 
   ngOnInit() {}
-
-  createItem() {
-    this.dbService.createArticle(`personal/${this.userId}`, {picureUrl: '', title: 'test', description: 'mega testing description'});
-  }
 }
