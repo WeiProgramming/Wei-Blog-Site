@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from  "@angular/fire/auth";
-import { auth } from  'firebase/app';
 import { User } from  'firebase';
-import {Route, Router} from "@angular/router";
+import {Router} from "@angular/router";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,6 @@ export class AuthService {
   }
 
   async Login(email: string, password: string) {
-    console.log(email + ' ' + password);
     try {
       await this.afAuth.auth.signInWithEmailAndPassword(email, password);
       this.router.navigate(['dashboard']);
@@ -29,6 +28,10 @@ export class AuthService {
     catch(e) {
       alert(`Error!${e.message}`);
     }
+  }
+
+  getUser(): Observable<any>{
+      return this.afAuth.authState;
   }
 
   async doLogout(){

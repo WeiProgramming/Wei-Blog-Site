@@ -1,29 +1,35 @@
 <article>
-  <header class="text-center">
-    <div class="btn-group" role="group" aria-label="Basic example">
-      <button type="button" class="btn btn-primary">Personal</button>
-      <button type="button" class="btn btn-secondary">Business</button>
-      <button type="button" class="btn btn-default">Random</button>
+
+  <form [formGroup]="ArticleForm" >
+    <div class = "input-group">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="genre">Type</label>
+      </div>
+      <select class="custom-select" id="genre" formControlName="type">
+        <option selected> Please choose one...</option>
+        <option value="personal">Personal</option>
+        <option value="business">Business</option>
+        <option value="random">Random</option>
+      </select>
     </div>
-  </header>
-  <form>
     <div class = "form-group">
       <label for="title">Title</label>
-      <input class="form-control" type="text" id="title" name="title" placeholder="Title Here...">
+      <input formControlName="title" class="form-control" type="text" id="title" name="title" placeholder="Title Here...">
       <small class="form-text text-muted">Enter the title here</small>
     </div>
     <div class = "form-group">
       <label for="message">Message</label>
-      <input class="form-control" type="text" id="message" name="message" placeholder="Title Here...">
+      <input formControlName="message" class="form-control" type="text" id="message" name="message" placeholder="Title Here...">
       <small class="form-text text-muted">Enter the message here</small>
     </div>
     <div class = "form-group">
       <label for="imageSrc">Image Upload</label>
-      <input class="form-control" type="file" id="imageSrc" name="imageSrc" placeholder="Title Here...">
+      <input formControlName="image" class="form-control" type="file" id="imageSrc" name="imageSrc" placeholder="Title Here...">
       <small class="form-text text-muted">Enter the image here</small>
     </div>
-    <button type="submit" class="btn btn-primary" (click)="createArticle()">Submit</button>
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
     <button class="btn btn-default">Clear</button>
     <button class="btn btn-danger pull-right">Cancel</button>
   </form>
+  <button class="btn btn-outline-primary" (click)="tryLogout()">Logout</button>
 </article>

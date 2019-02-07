@@ -94,22 +94,22 @@
   }
 
   .home {
-    background-image: url('./src/assets/images/home-bg.jpg');
+    background-image: url('/assets/images/home-bg.jpg');
     @extend .flex_items_centered;
   }
 
   .personal {
-    background-image: url('src/assets/images/personal-bg.jpg');
+    background-image: url('/assets/images/personal-bg.jpg');
     @extend .flex_items_centered;
   }
 
   .business {
-    background-image: url('src/assets/images/business-bg.jpg');
+    background-image: url('/assets/images/business-bg.jpg');
     @extend .flex_items_centered;
   }
 
   .random {
-    background-image: url('src/assets/images/random-bg.jpg');
+    background-image: url('/assets/images/random-bg.jpg');
     @extend .flex_items_centered;
   }
 }
