@@ -1,26 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import {DatabaseService} from "../../../shared/database/database.service";
 import {AngularFireAuth} from "@angular/fire/auth";
+import {fadeIn} from "../../../shared/animations/fadein";
 
 
 @Component({
   selector: 'app-personal',
   templateUrl: './personal.component.html',
-  styleUrls: ['./personal.component.scss']
+  styleUrls: ['./personal.component.scss'],
+  animations: [fadeIn]
 })
 export class PersonalComponent implements OnInit {
   articles: any[];
-  userId: string;
+  personalText = 'personal';
 
   constructor(private dbService: DatabaseService, private afAuth: AngularFireAuth) {
-    this.afAuth.authState.subscribe(user => {
-      if(user) {
-        console.log(user);
-        this.userId = user.uid;
-        this.articles = this.dbService.getArticles(`personal/${this.userId}`);
-        console.log(this.articles);
-      }
-    })
+    this.articles = this.dbService.getArticles(`articles/${this.personalText}`)
   }
 
   ngOnInit() {}

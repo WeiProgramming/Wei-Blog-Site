@@ -29,7 +29,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.articleData = { title: 'test', description: 'mega testing description', pictureUrl: ''};
+    this.articleData = { title: 'test', description: 'mega testing description', pictureUrl: '', userID: ''};
     this.ArticleForm = this.fb.group({
       type: [''],
       title: [''],
@@ -40,14 +40,17 @@ export class DashboardComponent implements OnInit {
       this.type = formData.type;
       this.title = formData.title;
       this.message = formData.message;
-      this.image = ''
+      this.image = 'assets/images/business-bg.jpg';
     });
   }
   onSubmit() {
+    this.createArticle();
   }
 
   createArticle() {
-    this.db.createArticle(`personal/${this.userID}`, this.articleData )
+    this.articleData = new Article(this.title, this.message, this.image, this.userID);
+    this.db.createArticle(`articles/${this.type}`, this.articleData );
+    this.ArticleForm.reset();
   }
   tryLogout() {
     this.authService.doLogout();

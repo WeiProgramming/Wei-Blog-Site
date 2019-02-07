@@ -13,6 +13,8 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 
 import {environment} from '../environments/environment';
 import {InternalModule} from './internal/internal.module';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import {InternalModule} from './internal/internal.module';
   ],
   imports: [
     BrowserModule,
+    BrowserModule,
+    BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase, 'blog-20dcd'),
     AngularFireAuthModule,
     AngularFireDatabaseModule,

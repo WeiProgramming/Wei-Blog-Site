@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import {Observable} from 'rxjs';
+import {animate, query, style, transition, trigger} from "@angular/animations";
+import {fadeIn} from "../../../shared/animations/fadein";
 
 @Component({
   selector: 'app-default-layout',
   templateUrl: './default-layout.component.html',
-  styleUrls: ['./default-layout.component.scss']
+  styleUrls: ['./default-layout.component.scss'],
+  animations: [fadeIn]
+
 })
 export class DefaultLayoutComponent implements OnInit {
   public books: AngularFireList<any>;
@@ -14,10 +18,10 @@ export class DefaultLayoutComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.books = this.db.list('/todos');
-    this.keys =  this.books.snapshotChanges().subscribe(res => {
-     res.map(item => ({key: item.payload.key}));
-    });
-    console.log(this.keys);
+    // this.books = this.db.list('/todos');
+    // this.keys =  this.books.snapshotChanges().subscribe(res => {
+    //  res.map(item => ({key: item.payload.key}));
+    // });
+    // console.log(this.keys);
   }
 }
