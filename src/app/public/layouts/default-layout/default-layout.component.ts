@@ -3,13 +3,12 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import {Observable} from 'rxjs';
 import {animate, query, style, transition, trigger} from "@angular/animations";
 import {fadeIn} from "../../../shared/animations/fadein";
+import {fadeOut} from "../../../shared/animations/fadeout";
 
 @Component({
   selector: 'app-default-layout',
   templateUrl: './default-layout.component.html',
-  styleUrls: ['./default-layout.component.scss'],
-  animations: [fadeIn]
-
+  styleUrls: ['./default-layout.component.scss']
 })
 export class DefaultLayoutComponent implements OnInit {
   public books: AngularFireList<any>;

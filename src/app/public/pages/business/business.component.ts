@@ -11,16 +11,12 @@ import {AngularFireAuth} from "@angular/fire/auth";
 export class BusinessComponent implements OnInit {
   articles: any[];
   userId: string;
+  articleText = 'business';
 
   constructor(private dbService: DatabaseService, private auth: AngularFireAuth) { }
 
   ngOnInit() {
-    this.auth.authState.subscribe(user => {
-      if(user) {
-        this.userId = user.uid;
-        this.articles = this.dbService.getArticles(`personal/${this.userId}`);
-      }
-    })
+        this.articles = this.dbService.getArticles(`articles/${this.articleText}`);
   }
 
 }

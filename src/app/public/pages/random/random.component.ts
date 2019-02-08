@@ -8,11 +8,12 @@ import {DatabaseService} from "../../../shared/database/database.service";
 })
 export class RandomComponent implements OnInit {
   articles: any[];
+  articleText = 'random';
 
   constructor(private dbService: DatabaseService) { }
 
   ngOnInit() {
-    this.articles = this.dbService.getArticles('/articles');
+    this.articles = this.dbService.getArticles(`articles/${this.articleText}`);
   }
 
 }

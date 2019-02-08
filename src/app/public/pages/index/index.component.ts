@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {Router} from '@angular/router';
+import {fadeOut} from "../../../shared/animations/fadeout";
 
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
-  styleUrls: ['./index.component.scss']
+  styleUrls: ['./index.component.scss'],
+  animations: [fadeOut]
 })
 export class IndexComponent implements OnInit {
   // homeSubject = new BehaviorSubject<boolean>(false);
