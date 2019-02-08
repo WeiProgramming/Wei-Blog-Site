@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../../../shared/auth/auth.service';
 
 @Component({
   selector: 'app-default-layout',
@@ -6,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./default-layout.component.scss']
 })
 export class DefaultLayoutComponent implements OnInit {
+  email: string;
 
-  constructor() { }
+  constructor(public authService: AuthService) {
+    authService.getUser().subscribe(user => {
+      this.email = user.email;
+    });
+  }
 
   ngOnInit() {
   }

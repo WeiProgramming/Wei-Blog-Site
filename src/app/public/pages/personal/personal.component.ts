@@ -12,10 +12,10 @@ import {fadeIn} from "../../../shared/animations/fadein";
 })
 export class PersonalComponent implements OnInit {
   articles: any[];
-  personalText = 'personal';
+  articleText = 'personal';
 
   constructor(private dbService: DatabaseService, private afAuth: AngularFireAuth) {
-    this.articles = this.dbService.getArticles(`articles/${this.personalText}`)
+    this.articles = this.dbService.getArticles(`articles/${this.articleText}`);
   }
 
   ngOnInit() {}

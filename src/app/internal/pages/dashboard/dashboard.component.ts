@@ -44,12 +44,15 @@ export class DashboardComponent implements OnInit {
     });
   }
   onSubmit() {
-    this.createArticle();
+    console.log(this.ArticleForm.value);
+    // this.createArticle();
   }
 
   createArticle() {
     this.articleData = new Article(this.title, this.message, this.image, this.userID);
     this.db.createArticle(`articles/${this.type}`, this.articleData );
+  }
+  resetForm() {
     this.ArticleForm.reset();
   }
   tryLogout() {

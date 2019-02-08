@@ -1,4 +1,19 @@
-<section class = "container">
-  <router-outlet></router-outlet>
-</section>
+<mat-sidenav-container autosize>
+  <mat-sidenav mode="side" opened>
+    <nav>
+      <div class="nav-button" routerLink="/"><i class="material-icons">
+          signal_cellular_alt
+        </i>{{email | uppercase}}
+      </div>
+      <div class="nav-button" (click)="authService.doLogout()">
+        Logout
+      </div>
+    </nav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <section class = "container">
+      <router-outlet></router-outlet>
+    </section>
+  </mat-sidenav-content>
+</mat-sidenav-container>
 

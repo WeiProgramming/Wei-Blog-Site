@@ -1,6 +1,6 @@
-<section class = "container">
+<section class = "container" [@fadeIn]>
   <header>
-    <h1>Personal Articles, Okarinasai</h1>
+    <h1>{{articleText | uppercase}}</h1>
   </header>
   <article class = "row" *ngFor="let article of articles">
     <div class = "col-md-3">

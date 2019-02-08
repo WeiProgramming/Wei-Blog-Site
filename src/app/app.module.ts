@@ -3,17 +3,17 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import {ROUTES} from './app-routing.component';
 import {PublicModule} from './public/public.module';
 
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from "angularfire2/database";
-import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 
 import {environment} from '../environments/environment';
 import {InternalModule} from './internal/internal.module';
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MaterialModule} from './material/material.module';
 
 
 @NgModule({
@@ -22,8 +22,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
   ],
   imports: [
     BrowserModule,
-    BrowserModule,
     BrowserAnimationsModule,
+    MaterialModule,
     AngularFireModule.initializeApp(environment.firebase, 'blog-20dcd'),
     AngularFireAuthModule,
     AngularFireDatabaseModule,

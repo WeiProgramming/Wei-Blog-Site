@@ -1,5 +1,4 @@
 <article>
-
   <form [formGroup]="ArticleForm" >
     <div class = "input-group">
       <div class="input-group-prepend">
@@ -19,17 +18,15 @@
     </div>
     <div class = "form-group">
       <label for="message">Message</label>
-      <input formControlName="message" class="form-control" type="text" id="message" name="message" placeholder="Title Here...">
+      <textarea class="form-control" rows="3" formControlName="message" id="message" name="message" placeholder="Message Here..."></textarea>
       <small class="form-text text-muted">Enter the message here</small>
     </div>
-    <div class = "form-group">
-      <label for="imageSrc">Image Upload</label>
-      <input formControlName="image" class="form-control" type="file" id="imageSrc" name="imageSrc" placeholder="Title Here...">
-      <small class="form-text text-muted">Enter the image here</small>
+    <div class="custom-file">
+      <input formControlName="image" type="file" class="custom-file-input" id="customFile">
+      <label class="custom-file-label" for="customFile">Choose image file</label>
     </div>
-    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
-    <button class="btn btn-default">Clear</button>
-    <button class="btn btn-danger pull-right">Cancel</button>
+    <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+    <button mat-raised-button (click)="resetForm()">Clear</button>
   </form>
-  <button class="btn btn-outline-primary" (click)="tryLogout()">Logout</button>
+  <button mat-raised-button color="accent" (click)="tryLogout()">Logout</button>
 </article>

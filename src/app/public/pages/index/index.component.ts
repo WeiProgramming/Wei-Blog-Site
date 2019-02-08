@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {Router} from '@angular/router';
-import {fadeOut} from "../../../shared/animations/fadeout";
+import {fadeOut} from '../../../shared/animations/fadeout';
 
 @Component({
   selector: 'app-index',
