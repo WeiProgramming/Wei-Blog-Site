@@ -2,7 +2,8 @@ export class Article {
   title: string;
   description: string;
   pictureUrl: string;
-  userID: string
+  userID: string;
+  createdAt: string;
 
   constructor(title: string, description: string, picUrl: string, uid: string) {
     this.title = title;

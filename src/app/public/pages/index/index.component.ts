@@ -2,19 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {Router} from '@angular/router';
 import {fadeOut} from '../../../shared/animations/fadeout';
+import {fadeIn} from '../../../shared/animations/fadein';
 
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.scss'],
-  animations: [fadeOut]
+  animations: [fadeOut, fadeIn]
 })
 export class IndexComponent implements OnInit {
   // homeSubject = new BehaviorSubject<boolean>(false);
   // homeOpen = this.homeSubject.asObservable();
   constructor(private router: Router) { }
   ngOnInit() {
-    const items = document.querySelector('.category-group');
   }
 
   expand(event) {

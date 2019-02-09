@@ -4,11 +4,13 @@ import {AngularFireAuth} from "@angular/fire/auth";
 import {Article} from "../../models/Article";
 import {AuthService} from "../../../shared/auth/auth.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
+import {fadeOut} from '../../../shared/animations/fadeout';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
+  animations: [fadeOut]
 })
 export class DashboardComponent implements OnInit {
   articleData: Article;
@@ -29,7 +31,6 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.articleData = { title: 'test', description: 'mega testing description', pictureUrl: '', userID: ''};
     this.ArticleForm = this.fb.group({
       type: [''],
       title: [''],
@@ -44,13 +45,19 @@ export class DashboardComponent implements OnInit {
     });
   }
   onSubmit() {
-    console.log(this.ArticleForm.value);
-    // this.createArticle();
+    // console.log(this.ArticleForm.value);
+    this.createArticle();
   }
 
+  // Uses values from reactive forms and sends it to the nosql firebase db
   createArticle() {
     this.articleData = new Article(this.title, this.message, this.image, this.userID);
+    this.articleData['createdAt'] = this.getCurrentDay();
     this.db.createArticle(`articles/${this.type}`, this.articleData );
+  }
+  getCurrentDay(): string {
+    const date = new Date();
+    return date.toDateString() + ' ' + date.toTimeString();
   }
   resetForm() {
     this.ArticleForm.reset();

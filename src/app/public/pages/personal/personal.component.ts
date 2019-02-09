@@ -14,7 +14,7 @@ export class PersonalComponent implements OnInit {
   articles: any[];
   articleText = 'personal';
 
-  constructor(private dbService: DatabaseService, private afAuth: AngularFireAuth) {
+  constructor(private dbService: DatabaseService) {
     this.articles = this.dbService.getArticles(`articles/${this.articleText}`);
   }
 
