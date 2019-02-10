@@ -12,9 +12,9 @@ import {MaterialModule} from '../material/material.module';
 @NgModule({
   imports: [
     CommonModule,
+    MaterialModule,
     FormsModule,
     BrowserAnimationsModule,
-    MaterialModule,
     ReactiveFormsModule,
     RouterModule.forChild(ROUTE),
     SharedModule

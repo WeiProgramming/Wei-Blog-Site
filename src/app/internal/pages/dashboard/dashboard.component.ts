@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {DatabaseService} from "../../../shared/database/database.service";
-import {AngularFireAuth} from "@angular/fire/auth";
 import {Article} from "../../models/Article";
 import {AuthService} from "../../../shared/auth/auth.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
@@ -13,6 +12,7 @@ import {fadeOut} from '../../../shared/animations/fadeout';
   animations: [fadeOut]
 })
 export class DashboardComponent implements OnInit {
+  allArticles: any;
   articleData: Article;
   userID: any;
   ArticleForm: FormGroup;
@@ -24,10 +24,13 @@ export class DashboardComponent implements OnInit {
               private authService: AuthService,
               public fb: FormBuilder) {
     authService.getUser().subscribe(user => {
-      if(user) {
+      if (user) {
         return this.userID = user.uid;
       }
     });
+    this.allArticles = db.getAllArticles();
+    console.log(this.allArticles);
+
   }
 
   ngOnInit() {

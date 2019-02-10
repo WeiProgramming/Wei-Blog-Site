@@ -28,5 +28,14 @@
     <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
     <button mat-raised-button (click)="resetForm()">Clear</button>
   </form>
-  <button mat-raised-button color="accent" (click)="tryLogout()">Logout</button>
+  <div class = "articles-container">
+    <mat-list>
+      <mat-list-item *ngFor="let article of allArticles">
+        {{article.value.title}}
+        <span class="inline-spacer"></span>
+        <mat-icon class="example-icon">edit</mat-icon>
+
+      </mat-list-item>
+    </mat-list>
+  </div>
 </article>
