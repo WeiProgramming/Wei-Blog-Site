@@ -35,6 +35,10 @@ export const ROUTES: Routes = [
       {
         path: 'register',
         component: SignupComponent
+      },
+      {
+        path: '**',
+        redirectTo: '/'
       }
     ]
   }

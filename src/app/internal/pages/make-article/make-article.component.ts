@@ -1,18 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import {DatabaseService} from '../../../shared/database/database.service';
-import {Article} from '../../models/Article';
-import {AuthService} from '../../../shared/auth/auth.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {fadeOut} from '../../../shared/animations/fadeout';
-import {AngularFireDatabase} from '@angular/fire/database';
+import {Article} from '../../models/Article';
+import {DatabaseService} from '../../../shared/database/database.service';
+import {AuthService} from '../../../shared/auth/auth.service';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
-  animations: [fadeOut]
+  selector: 'app-make-article',
+  templateUrl: './make-article.component.html',
+  styleUrls: ['./make-article.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class MakeArticleComponent implements OnInit {
   // Variable that holds the data from db
   selectedArticles: any;
   // This is the asticle obj
@@ -25,6 +22,7 @@ export class DashboardComponent implements OnInit {
   title: string;
   message: string;
   image: any;
+
   constructor(private db: DatabaseService,
               private authService: AuthService,
               public fb: FormBuilder) {
@@ -55,12 +53,7 @@ export class DashboardComponent implements OnInit {
   onSubmit() {
     console.log(this.ArticleForm);
     this.createArticle();
-  }
-
-  onIndexChange(event) {
-    this.selectedArticles = [];
-   this.selectedArticles =  this.db.getArticles(`articles/${event.tab.textLabel.toLowerCase()}`);
-    this.currentActiveTab = event.tab.textLabel.toLowerCase();
+    this.resetForm();
   }
   getCurrentDay(): string {
     const date = new Date();
@@ -75,9 +68,5 @@ export class DashboardComponent implements OnInit {
     this.articleData['createdAt'] = this.getCurrentDay();
     this.db.createArticle(`articles/${this.type}`, this.articleData );
   }
-  // Remove Article item
-  removeArticle(article) {
-    this.db.removeArticle(`articles/${this.currentActiveTab}/${article['$key']}`);
-    this.selectedArticles = this.db.getArticles(`articles/${this.currentActiveTab}`);
-  }
+
 }

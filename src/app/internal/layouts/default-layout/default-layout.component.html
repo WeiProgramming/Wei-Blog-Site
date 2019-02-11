@@ -5,6 +5,15 @@
           signal_cellular_alt
         </i>{{email | uppercase}}
       </div>
+      <div class="nav-button" routerLink="/admin/dashboard">
+        Home
+      </div>
+      <div class="nav-button" routerLink="/admin/articles">
+        Articles
+      </div>
+      <div class="nav-button" routerLink="/admin/make-article">
+        Create article
+      </div>
       <div class="nav-button" (click)="authService.doLogout()">
         Logout
       </div>

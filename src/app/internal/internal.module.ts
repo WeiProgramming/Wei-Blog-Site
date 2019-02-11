@@ -8,6 +8,8 @@ import {SharedModule} from '../shared/shared.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from '../material/material.module';
+import { MakeArticleComponent } from './pages/make-article/make-article.component';
+import { ArticleListComponent } from './pages/article-list/article-list.component';
 
 @NgModule({
   imports: [
@@ -22,6 +24,6 @@ import {MaterialModule} from '../material/material.module';
   exports: [
     RouterModule
   ],
-  declarations: [DashboardComponent, DefaultLayoutComponent]
+  declarations: [DashboardComponent, DefaultLayoutComponent, MakeArticleComponent, ArticleListComponent]
 })
 export class InternalModule { }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {DatabaseService} from "../../../shared/database/database.service";
-import {AngularFireAuth} from "@angular/fire/auth";
+import {DatabaseService} from '../../../shared/database/database.service';
+import {AngularFireAuth} from '@angular/fire/auth';
 import {fadeIn} from '../../../shared/animations/fadein';
 
 

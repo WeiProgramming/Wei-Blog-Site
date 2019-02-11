@@ -1,4 +1,5 @@
-<article [@fadeOut]>
+<article>
+  <h2>Create Article</h2>
   <form [formGroup]="ArticleForm" >
     <div class = "input-group">
       <div class="input-group-prepend">
@@ -28,37 +29,4 @@
     <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="ArticleForm.valid ? false : true">Submit</button>
     <button mat-raised-button (click)="resetForm()">Clear</button>
   </form>
-
-  <!-- Article list container -->
-  <div class = "articles-container">
-    <mat-tab-group backgroundColor="accent" color="accent" [dynamicHeight]="true" (selectedTabChange)=onIndexChange($event)>
-      <mat-tab label="Business">
-        <mat-list>
-          <mat-list-item *ngFor="let article of selectedArticles">
-            <p>{{article.value.title}} - {{article.value.createdAt}}</p>
-            <span class="inline-spacer"></span>
-            <mat-icon class="example-icon" (click)="removeArticle(article)">edit</mat-icon>
-          </mat-list-item>
-        </mat-list>
-      </mat-tab>
-      <mat-tab label="Personal">
-        <mat-list>
-          <mat-list-item *ngFor="let article of selectedArticles">
-            <p>{{article.value.title}} - {{article.value.createdAt}}</p>
-            <span class="inline-spacer"></span>
-            <mat-icon class="example-icon" (click)="removeArticle(article)">edit</mat-icon>
-          </mat-list-item>
-        </mat-list>
-      </mat-tab>
-      <mat-tab label="Random">
-        <mat-list>
-          <mat-list-item *ngFor="let article of selectedArticles">
-            <p>{{article.value.title}} - {{article.value.createdAt}}</p>
-            <span class="inline-spacer"></span>
-            <mat-icon class="example-icon" (click)="removeArticle(article)">edit</mat-icon>
-          </mat-list-item>
-        </mat-list>
-      </mat-tab>
-    </mat-tab-group>
-  </div>
 </article>

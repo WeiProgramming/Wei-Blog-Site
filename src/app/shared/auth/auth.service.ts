@@ -23,9 +23,10 @@ export class AuthService {
   async Login(email: string, password: string) {
     try {
       await this.afAuth.auth.signInWithEmailAndPassword(email, password);
-      this.router.navigate(['dashboard']);
+      this.router.navigate(['admin/dashboard']);
     } catch (e) {
-      alert(`Error!${e.message}`);
+      console.log(`Error!${e.message}`);
+      this.router.navigate(['login']);
     }
   }
 

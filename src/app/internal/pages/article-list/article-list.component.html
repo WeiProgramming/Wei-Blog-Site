@@ -1,0 +1,35 @@
+<article>
+  <h2>All Articles</h2>
+  <!-- Article list container -->
+  <div class = "articles-container">
+    <mat-tab-group backgroundColor="accent" color="accent" [dynamicHeight]="true" (selectedTabChange)=onIndexChange($event)>
+      <mat-tab label="Business">
+        <mat-list>
+          <mat-list-item *ngFor="let article of selectedArticles">
+            <p>{{article.value.title}} - {{article.value.createdAt}}</p>
+            <span class="inline-spacer"></span>
+            <mat-icon class="example-icon" (click)="removeArticle(article)">edit</mat-icon>
+          </mat-list-item>
+        </mat-list>
+      </mat-tab>
+      <mat-tab label="Personal">
+        <mat-list>
+          <mat-list-item *ngFor="let article of selectedArticles">
+            <p>{{article.value.title}} - {{article.value.createdAt}}</p>
+            <span class="inline-spacer"></span>
+            <mat-icon class="example-icon" (click)="removeArticle(article)">edit</mat-icon>
+          </mat-list-item>
+        </mat-list>
+      </mat-tab>
+      <mat-tab label="Random">
+        <mat-list>
+          <mat-list-item *ngFor="let article of selectedArticles">
+            <p>{{article.value.title}} - {{article.value.createdAt}}</p>
+            <span class="inline-spacer"></span>
+            <mat-icon class="example-icon" (click)="removeArticle(article)">edit</mat-icon>
+          </mat-list-item>
+        </mat-list>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</article>
