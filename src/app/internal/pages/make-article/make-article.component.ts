@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Article} from '../../models/Article';
 import {DatabaseService} from '../../../shared/database/database.service';
 import {AuthService} from '../../../shared/auth/auth.service';
+import {AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask} from '@angular/fire/storage';
+import {finalize} from 'rxjs/operators';
 
 @Component({
   selector: 'app-make-article',
@@ -18,13 +20,17 @@ export class MakeArticleComponent implements OnInit {
   currentActiveTab: string;
   userID: any;
   ArticleForm: FormGroup;
-  type: string;
   title: string;
   message: string;
-  image: any;
+  currentImagePath: string;
+
+  ref: AngularFireStorageReference;
+  task: AngularFireUploadTask;
+  imageUploadEvent: any;
 
   constructor(private db: DatabaseService,
               private authService: AuthService,
+              private storage: AngularFireStorage,
               public fb: FormBuilder) {
     authService.getUser().subscribe(user => {
       if (user) {
@@ -42,16 +48,13 @@ export class MakeArticleComponent implements OnInit {
       image: ['']
     });
     this.ArticleForm.valueChanges.subscribe(formData =>  {
-      this.type = formData.type;
       this.title = formData.title;
       this.message = formData.message;
-      this.image = 'assets/images/business-bg.jpg';
     });
     this.selectedArticles = this.db.getArticles(`articles/business`);
     this.currentActiveTab = 'business';
   }
   onSubmit() {
-    console.log(this.ArticleForm);
     this.createArticle();
     this.resetForm();
   }
@@ -62,11 +65,28 @@ export class MakeArticleComponent implements OnInit {
   resetForm() {
     this.ArticleForm.reset();
   }
-  // Uses values from reactive forms and sends it to the nosql firebase db
+// Uses values from reactive forms and sends it to the nosql firebase db
   createArticle() {
-    this.articleData = new Article(this.title, this.message, this.image, this.userID);
+    let dbPath;
+    // Gets the type of article
+    const type = this.ArticleForm.controls['type'].value;
+    // Run the image upload tast
+    this.task = this.ref.put(this.imageUploadEvent.target.files[0]);
+    this.task.snapshotChanges().pipe(  finalize(() => {
+      this.ref.getDownloadURL().subscribe(url => {
+        // Finalize executes once the upload process is over look for the post nad update it with the pic url
+        console.log(type);
+        this.db.editArticle(`articles/${type}/${dbPath.key}`, {picUrl: this.currentImagePath});
+      });
+    })).subscribe();
+    this.articleData = new Article(this.title, this.message, this.userID);
     this.articleData['createdAt'] = this.getCurrentDay();
-    this.db.createArticle(`articles/${this.type}`, this.articleData );
-  }
 
+    dbPath = this.db.createArticle(`articles/${type}`, this.articleData );
+  }
+  upload(event) {
+    this.imageUploadEvent = event;
+    this.currentImagePath = `images/${new Date().getTime()}/_${this.imageUploadEvent.target.files[0].name}`;
+    this.ref = this.storage.ref(this.currentImagePath);
+  }
 }

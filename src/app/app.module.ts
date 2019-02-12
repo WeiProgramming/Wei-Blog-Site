@@ -14,6 +14,7 @@ import {environment} from '../environments/environment';
 import {InternalModule} from './internal/internal.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from './material/material.module';
+import {AngularFireStorageModule} from '@angular/fire/storage';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import {MaterialModule} from './material/material.module';
     AngularFireModule.initializeApp(environment.firebase, 'blog-20dcd'),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
+    AngularFireStorageModule,
     InternalModule,
     PublicModule,
     RouterModule.forRoot([]),

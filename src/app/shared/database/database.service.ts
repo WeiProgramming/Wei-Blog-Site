@@ -25,9 +25,12 @@ export class DatabaseService {
     return todosKeyValues;
   }
   createArticle(tableName: string, formData: object) {
-    this.db.list(`/${tableName}`).push(formData);
+    return this.db.list(`/${tableName}`).push(formData);
   }
   removeArticle(tablePath) {
     this.db.object(tablePath).remove();
+  }
+  editArticle(tablePath: string, updatedData: object) {
+    this.db.object(tablePath).update(updatedData);
   }
 }

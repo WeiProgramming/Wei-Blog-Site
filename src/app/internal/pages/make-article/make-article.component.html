@@ -23,7 +23,7 @@
       <small class="form-text text-muted">Enter the message here</small>
     </div>
     <div class="custom-file">
-      <input formControlName="image" type="file" class="custom-file-input" id="customFile">
+      <input formControlName="image" type="file" class="custom-file-input" id="customFile" (change)="upload($event)">
       <label class="custom-file-label" for="customFile">Choose image file</label>
     </div>
     <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="ArticleForm.valid ? false : true">Submit</button>
