@@ -4,6 +4,7 @@ export class Article {
   userID: string;
   createdAt: string;
   picUrl = '';
+  downloadedUrl = '';
 
   constructor(title: string, description: string, uid: string) {
     this.title = title;

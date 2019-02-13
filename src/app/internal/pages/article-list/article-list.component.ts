@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Article} from '../../models/Article';
-import {FormBuilder, FormGroup} from '@angular/forms';
 import {DatabaseService} from '../../../shared/database/database.service';
-import {AuthService} from '../../../shared/auth/auth.service';
+import {AngularFireStorage} from '@angular/fire/storage';
+import {Article} from '../../models/Article';
 
 @Component({
   selector: 'app-article-list',
@@ -16,17 +15,26 @@ export class ArticleListComponent implements OnInit {
   // Current Opened tab
   currentActiveTab: string;
 
-  constructor(private db: DatabaseService) {}
+  constructor(private db: DatabaseService, private storage: AngularFireStorage) {}
 
   ngOnInit() {
     this.selectedArticles = this.db.getArticles(`articles/business`);
     this.currentActiveTab = 'business';
   }
 
+  // Remove data and upload
+  completeRemoval(article: {$key: string; value: {}}) {
+    this.removeArticle(article);
+    this.deleteUpload(article);
+  }
   // Remove Article item
   removeArticle(article) {
     this.db.removeArticle(`articles/${this.currentActiveTab}/${article['$key']}`);
     this.selectedArticles = this.db.getArticles(`articles/${this.currentActiveTab}`);
+  }
+  // remove upload imaged
+  deleteUpload(article) {
+    this.storage.ref(`${article.value.picUrl}`).delete();
   }
 
   onIndexChange(event) {

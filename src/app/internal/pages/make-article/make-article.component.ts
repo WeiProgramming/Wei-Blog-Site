@@ -74,9 +74,8 @@ export class MakeArticleComponent implements OnInit {
     this.task = this.ref.put(this.imageUploadEvent.target.files[0]);
     this.task.snapshotChanges().pipe(  finalize(() => {
       this.ref.getDownloadURL().subscribe(url => {
-        // Finalize executes once the upload process is over look for the post nad update it with the pic url
-        console.log(type);
-        this.db.editArticle(`articles/${type}/${dbPath.key}`, {picUrl: this.currentImagePath});
+        // Finalize executes once the upload process is over look for the post nad update it with the pic url and downloadedurl
+        this.db.editArticle(`articles/${type}/${dbPath.key}`, {picUrl: this.currentImagePath, downloadedUrl: url});
       });
     })).subscribe();
     this.articleData = new Article(this.title, this.message, this.userID);
