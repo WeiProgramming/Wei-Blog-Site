@@ -1,4 +1,4 @@
-<article>
+<div>
   <h2>Create Article</h2>
   <form [formGroup]="ArticleForm" >
     <div class = "input-group">
@@ -24,9 +24,9 @@
     </div>
     <div class="custom-file">
       <input formControlName="image" type="file" class="custom-file-input" id="customFile" (change)="upload($event)">
-      <label class="custom-file-label" for="customFile">Choose image file</label>
+      <label class="custom-file-label" for="customFile">{{imageUploadEvent ? imageUploadEvent.target?.files[0]?.name : 'Choose image file'}}</label>
     </div>
     <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="ArticleForm.valid ? false : true">Submit</button>
     <button mat-raised-button (click)="resetForm()">Clear</button>
   </form>
-</article>
+</div>

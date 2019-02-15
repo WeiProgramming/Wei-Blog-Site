@@ -71,7 +71,7 @@ export class DashboardComponent implements OnInit {
   }
   // Uses values from reactive forms and sends it to the nosql firebase db
   createArticle() {
-    this.articleData = new Article(this.title, this.message, this.image, this.userID);
+    this.articleData = new Article(this.title, this.message, this.userID);
     this.articleData['createdAt'] = this.getCurrentDay();
     this.db.createArticle(`articles/${this.type}`, this.articleData );
   }

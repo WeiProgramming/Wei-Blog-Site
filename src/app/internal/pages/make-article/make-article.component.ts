@@ -77,7 +77,7 @@ export class MakeArticleComponent implements OnInit {
         // Finalize executes once the upload process is over look for the post nad update it with the pic url and downloadedurl
         this.db.editArticle(`articles/${type}/${dbPath.key}`, {picUrl: this.currentImagePath, downloadedUrl: url});
       });
-    })).subscribe();
+    })).subscribe((progress) => console.log(progress));
     this.articleData = new Article(this.title, this.message, this.userID);
     this.articleData['createdAt'] = this.getCurrentDay();
 
