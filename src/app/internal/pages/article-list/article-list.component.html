@@ -6,27 +6,30 @@
       <mat-tab label="Business">
         <mat-list>
           <mat-list-item *ngFor="let article of selectedArticles">
-            <p>{{article.value.title}} - {{article.value.createdAt}}</p>
+            <p mat-line>{{article.value.title}} - {{article.value.createdAt}}</p>
+            <mat-icon mat-list-icon>favorite_border</mat-icon>
             <span class="inline-spacer"></span>
-            <mat-icon class="example-icon" (click)="completeRemoval(article)">edit</mat-icon>
+            <mat-icon (click)="completeRemoval(article)">delete</mat-icon>
           </mat-list-item>
         </mat-list>
       </mat-tab>
       <mat-tab label="Personal">
         <mat-list>
           <mat-list-item *ngFor="let article of selectedArticles">
-            <p>{{article.value.title}} - {{article.value.createdAt}}</p>
+            <p mat-line>{{article.value.title}} - {{article.value.createdAt}}</p>
+            <mat-icon mat-list-icon>favorite_border</mat-icon>
             <span class="inline-spacer"></span>
-            <mat-icon class="example-icon" (click)="completeRemoval(article)">edit</mat-icon>
+            <mat-icon (click)="completeRemoval(article)">delete</mat-icon>
           </mat-list-item>
         </mat-list>
       </mat-tab>
       <mat-tab label="Random">
         <mat-list>
           <mat-list-item *ngFor="let article of selectedArticles">
-            <p>{{article.value.title}} - {{article.value.createdAt}}</p>
+            <p mat-line>{{article.value.title}} - {{article.value.createdAt}}</p>
+            <mat-icon mat-list-icon>favorite_border</mat-icon>
             <span class="inline-spacer"></span>
-            <mat-icon class="example-icon" (click)="completeRemoval(article)">edit</mat-icon>
+            <mat-icon (click)="completeRemoval(article)">delete</mat-icon>
           </mat-list-item>
         </mat-list>
       </mat-tab>

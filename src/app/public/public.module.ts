@@ -10,17 +10,24 @@ import { RandomComponent } from './pages/random/random.component';
 import {SharedModule} from '../shared/shared.module';
 import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
-import {MaterialModule} from '../material/material.module';
+import {LikesComponent} from '../shared/components/likes/likes.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule,
     RouterModule.forChild(ROUTES),
     SharedModule
   ],
   exports: [
     RouterModule
-  ], declarations: [IndexComponent, DefaultLayoutComponent, PersonalComponent, BusinessComponent, RandomComponent, SignupComponent, LoginComponent]
+  ], declarations: [
+    IndexComponent,
+    DefaultLayoutComponent,
+    PersonalComponent,
+    BusinessComponent,
+    RandomComponent,
+    SignupComponent,
+    LoginComponent,
+    LikesComponent]
 })
 export class PublicModule { }

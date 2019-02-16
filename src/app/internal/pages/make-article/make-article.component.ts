@@ -5,11 +5,13 @@ import {DatabaseService} from '../../../shared/database/database.service';
 import {AuthService} from '../../../shared/auth/auth.service';
 import {AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask} from '@angular/fire/storage';
 import {finalize} from 'rxjs/operators';
+import {fadeIn} from '../../../shared/animations/fadein';
 
 @Component({
   selector: 'app-make-article',
   templateUrl: './make-article.component.html',
-  styleUrls: ['./make-article.component.scss']
+  styleUrls: ['./make-article.component.scss'],
+  animations: [fadeIn]
 })
 export class MakeArticleComponent implements OnInit {
   // Variable that holds the data from db
@@ -27,6 +29,8 @@ export class MakeArticleComponent implements OnInit {
   ref: AngularFireStorageReference;
   task: AngularFireUploadTask;
   imageUploadEvent: any;
+  uploadProgress: number;
+  showFlashMessage = false;
 
   constructor(private db: DatabaseService,
               private authService: AuthService,
@@ -77,7 +81,9 @@ export class MakeArticleComponent implements OnInit {
         // Finalize executes once the upload process is over look for the post nad update it with the pic url and downloadedurl
         this.db.editArticle(`articles/${type}/${dbPath.key}`, {picUrl: this.currentImagePath, downloadedUrl: url});
       });
-    })).subscribe((progress) => console.log(progress));
+    })).subscribe((progress) => {
+      this.uploadProgress = (progress.bytesTransferred / progress.totalBytes) * 100;
+    });
     this.articleData = new Article(this.title, this.message, this.userID);
     this.articleData['createdAt'] = this.getCurrentDay();
 
@@ -87,5 +93,9 @@ export class MakeArticleComponent implements OnInit {
     this.imageUploadEvent = event;
     this.currentImagePath = `images/${new Date().getTime()}/_${this.imageUploadEvent.target.files[0].name}`;
     this.ref = this.storage.ref(this.currentImagePath);
+  }
+  showFlash() {
+    this.showFlashMessage = true;
+    setTimeout(() => this.showFlashMessage = false, 5000);
   }
 }

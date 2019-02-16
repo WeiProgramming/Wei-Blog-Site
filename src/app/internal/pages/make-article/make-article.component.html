@@ -1,4 +1,7 @@
 <div>
+  <mat-card [ngStyle]="{'visibility': showFlashMessage ? 'visible' : 'hidden'}">
+    <mat-card-content>Article Successfully uploaded!</mat-card-content>
+  </mat-card>
   <h2>Create Article</h2>
   <form [formGroup]="ArticleForm" >
     <div class = "input-group">
@@ -26,6 +29,7 @@
       <input formControlName="image" type="file" class="custom-file-input" id="customFile" (change)="upload($event)">
       <label class="custom-file-label" for="customFile">{{imageUploadEvent ? imageUploadEvent.target?.files[0]?.name : 'Choose image file'}}</label>
     </div>
+    <mat-progress-bar mode="determinate" [value]="uploadProgress" (animationEnd)="showFlash()"></mat-progress-bar>
     <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="ArticleForm.valid ? false : true">Submit</button>
     <button mat-raised-button (click)="resetForm()">Clear</button>
   </form>

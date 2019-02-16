@@ -5,6 +5,7 @@ export class Article {
   createdAt: string;
   picUrl = '';
   downloadedUrl = '';
+  likes = 0;
 
   constructor(title: string, description: string, uid: string) {
     this.title = title;

@@ -13,6 +13,8 @@
       <div class = "article-summary-container">
         <h3>{{article.value.title}}</h3>
         <p>{{article.value.description}}</p>
+        <p>{{article.value.createdAt}}</p>
+        <p><mat-icon>{{article.value.likes ? 'favorite' : 'favorite_border'}}</mat-icon><small>{{article.value.likes}}</small></p>
       </div></div>
   </article>
   </mat-card>
