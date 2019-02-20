@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, AfterViewInit, AfterContentInit, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, Input, OnInit, AfterViewInit, AfterContentInit, OnChanges, SimpleChanges, Output, EventEmitter} from '@angular/core';
 import {Article} from '../../../internal/models/Article';
 
 @Component({
@@ -7,8 +7,9 @@ import {Article} from '../../../internal/models/Article';
   styleUrls: ['./likes.component.scss']
 })
 export class LikesComponent implements OnInit, AfterContentInit {
-  @Input() article: Article;
-  amountOfLikes: number;
+  @Input() initialLikes: number;
+  @Output() updatedLikes: EventEmitter<any> = new EventEmitter<any>();
+  // output updated likes
   hasLiked = true;
 
   constructor() {
@@ -16,20 +17,20 @@ export class LikesComponent implements OnInit, AfterContentInit {
   ngOnInit() {
   }
   ngAfterContentInit(): void {
-    if (!this.article.likes) {
-      this.amountOfLikes = 0;
+    if (!this.initialLikes) {
+      this.initialLikes = 0;
       this.hasLiked = false;
-      console.log('executed true');
+      console.log('executed not liked');
     } else {
       this.hasLiked = true;
-      console.log('executed false ');
+      console.log('executed liked');
     }
   }
   updateLikes() {
-    this.amountOfLikes++;
-    if(this.amountOfLikes  > 0){
+    this.initialLikes++;
+    if (this.initialLikes  > 0) {
       this.hasLiked = true;
     }
-    return this.amountOfLikes
+    this.updatedLikes.emit(this.initialLikes);
   }
 }

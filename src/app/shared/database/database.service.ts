@@ -10,17 +10,16 @@ export class DatabaseService {
   constructor(private db: AngularFireDatabase) { }
 
   getArticles(tableName: string): Array<any> {
-    this.articleList = this.db.list(`/${tableName}`);
-    // this.itemList.valueChanges().subscribe(res => console.log(res));
     const todosKeyValues = [];
 
+    this.articleList = this.db.list(`/${tableName}`);
+    // this.itemList.valueChanges().subscribe(res => console.log(res));
     this.articleList.snapshotChanges().subscribe(actions => {
       actions.forEach(action => {
         const value = action.payload.val();
         const id = action.payload.key;
         todosKeyValues.push({$key: id, value: value});
       });
-      return;
     });
     return todosKeyValues;
   }

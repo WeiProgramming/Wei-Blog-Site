@@ -15,8 +15,7 @@
           <h3>{{article.value.title}}</h3>
           <p>{{article.value.description}}</p>
           <p>{{article.value.createdAt}}</p>
-          <app-likes [article] = "article"></app-likes>
-          <!--<p><mat-icon>{{article.value.likes ? 'favorite' : 'favorite_border'}}</mat-icon><small>{{article.value.likes}}</small></p>-->
+          <app-likes [initialLikes]="article.value.likes" (updatedLikes)="updateLikes($event, article.$key)"></app-likes>
         </div>
       </div>
     </article>
